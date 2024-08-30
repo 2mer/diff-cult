@@ -1,0 +1,24 @@
+{
+	"name": "diff-cult",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "ts-node ./src/main.ts",
+		"play": "pnpm ts-node --require './src/main.ts'",
+		"repl": "pnpm ts-node './src/frontend/repl/index.ts'",
+		"record": "docker run --rm -v $PWD:/vhs ghcr.io/charmbracelet/vhs cassette.tape"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^22.5.1",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.5.4"
+	},
+	"dependencies": {
+		"chalk": "4",
+		"eventemitter3": "^5.0.1"
+	}
+}
