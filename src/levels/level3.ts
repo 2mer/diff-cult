@@ -2,13 +2,13 @@ import { Task, Random, Level } from "../logic";
 
 class Impl extends Level {
 	constructor() {
-		super('x2');
+		super('*o*');
 	}
 
 	public generateTask(): Task {
-		const r = String(Random.nextInt(100));
+		const r = String(Random.nextCharsBetween(3, 8));
 
-		const task = new Task(r, r + r)
+		const task = new Task(r, "*" + r + "*")
 
 		return task;
 	}

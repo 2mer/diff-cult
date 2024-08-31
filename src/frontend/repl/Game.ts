@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { HeadlessGame, IncorrectSubmissionError } from "../../HeadlessGame";
+import { GameState, HeadlessGame, IncorrectSubmissionError } from "../../HeadlessGame";
 import { Level, Task } from "../../logic";
 import { humanReadableTime } from "../../util";
 import * as REPL from "repl";
@@ -33,8 +33,8 @@ export class ReplGame extends HeadlessGame {
 
 	private renderReplEvalOutput = true;
 
-	constructor(tasksPerLevel: number) {
-		super(tasksPerLevel);
+	constructor(tasksPerLevel: number, initialState?: GameState) {
+		super(tasksPerLevel, initialState);
 
 		this.repl = REPL.start({
 			prompt: this.makePrompt(),
@@ -44,6 +44,16 @@ export class ReplGame extends HeadlessGame {
 		const _this = this;
 
 		Object.defineProperty(this.repl.context, 'origin', {
+			get() {
+				return _this.origin;
+			},
+
+			set(v: string) {
+				_this.origin = v;
+			},
+		})
+
+		Object.defineProperty(this.repl.context, 'o', {
 			get() {
 				return _this.origin;
 			},
@@ -203,9 +213,10 @@ export class ReplGame extends HeadlessGame {
 		console.log('│')
 		console.log(`│  ${chalk.underline.gray`gameplay`}`)
 		console.log(`│  - ${code('origin')} to get the origin value`)
+		console.log(`│  - ${code('o')} can be used instead of origin`)
 		console.log(`│  - ${code('origin = <value>')} to submit a value for the current task`)
 		console.log(`│  - ${code('submit(() => game.origin = <value>)')} to try your solution on all remaining level tasks`)
-		console.log(`│  - ${code('game.origin = <value> >>')} to try your solution on all remaining level tasks`)
+		console.log(`│  - ${code('origin = <value> >>')} to try your solution on all remaining level tasks`)
 		console.log(`│ `)
 		console.log(`│  ${chalk.underline.gray`info`}`)
 		console.log(`│  - ${code('.task')} to show level information`)

@@ -8,19 +8,27 @@ export class IncorrectSubmissionError extends Error {
 	}
 }
 
+export type GameState = { level?: number, task?: number };
+
 export class HeadlessGame {
 
-	protected currentLevel: Level = levels[0];
+	protected currentLevel: Level;
 	protected currentTask: Task;
-	protected taskIndex: number = 0;
-	protected levelIndex: number = 0;
+	protected taskIndex: number;
+	protected levelIndex: number;
 
 	private taskTimer = new Timer();
 	private levelTime = 0;
 	protected won = false;
 
-	constructor(protected tasksPerLevel: number) {
+	constructor(protected tasksPerLevel: number, initialState?: GameState) {
+		this.taskIndex = initialState?.task ?? 0;
+		this.levelIndex = initialState?.level ?? 0;
+
+		this.currentLevel = levels[this.levelIndex]
+
 		this.currentTask = this.currentLevel.generateTask();
+		this.taskTimer.start();
 	};
 
 
@@ -59,6 +67,7 @@ export class HeadlessGame {
 		}
 
 		this.currentTask = this.currentLevel!.generateTask();
+		this.taskTimer.start();
 
 		this.onAdvance();
 	}
@@ -73,7 +82,8 @@ export class HeadlessGame {
 	/**
 	 * submit a value to the current task
 	 */
-	set origin(value: string) {
+	set origin(_value: string) {
+		const value = String(_value);
 		const isSame = this.currentTask.target === value;
 		if (!isSame) {
 			throw new IncorrectSubmissionError(value, this.currentTask.target)

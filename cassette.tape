@@ -1,7 +1,7 @@
 # Where should we write the GIF?
 Output demo.gif
 
-Require npm
+Require pnpm
 
 # Set up a 1200x600 terminal with 46px font.
 Set FontSize 12

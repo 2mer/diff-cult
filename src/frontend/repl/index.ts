@@ -21,7 +21,9 @@ console.log(
 	`│ type ${chalk.bgBlackBright.yellow`.tutorial`} to show the tutorial\n`
 )
 
-const game = new ReplGame(3);
+const game = new ReplGame(3, {
+	level: Number(process.env.LEVEL ?? 0),
+});
 
 
 [
