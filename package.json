@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"bin": {
-		"diff-cult": "./bin/repl.js"
+		"@sgty/diff-cult": "./bin/repl.js"
 	},
 	"scripts": {
 		"dev": "ts-node ./src/main.ts",
