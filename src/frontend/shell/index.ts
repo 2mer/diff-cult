@@ -3,12 +3,8 @@ import { ShellGame } from "./Game";
 
 const argv: {
 	outDir: string,
-	command: string,
-} = require('minimist')(process.argv.slice(2), { defaults: { outDir: process.cwd() } })
+	command?: string,
+	bulkMode: boolean,
+} = require('minimist')(process.argv.slice(2), { default: { outDir: process.cwd(), bulkMode: false } })
 
-if (!argv.command) {
-	console.error("Please specifiy command (--command='your command')")
-	exit(1);
-}
-
-const game = new ShellGame(5, { command: argv.command, outDir: argv.outDir });
+const game = new ShellGame(5, { command: argv.command, outDir: argv.outDir, bulkMode: argv.bulkMode });
