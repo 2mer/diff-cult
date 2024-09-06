@@ -8,8 +8,8 @@
 	},
 	"scripts": {
 		"dev": "ts-node ./src/main.ts",
-		"play": "pnpm ts-node --require './src/main.ts'",
 		"repl": "pnpm ts-node './src/frontend/repl/index.ts'",
+		"shell": "pnpm ts-node './src/frontend/shell/index.ts' --command='nvim -O $DC_origin $DC_target'",
 		"build": "tsup ./src/frontend/repl/index.ts"
 	},
 	"keywords": [],
@@ -23,6 +23,7 @@
 	},
 	"dependencies": {
 		"chalk": "4",
-		"eventemitter3": "^5.0.1"
+		"eventemitter3": "^5.0.1",
+		"minimist": "^1.2.8"
 	}
 }

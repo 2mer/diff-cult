@@ -1,4 +1,6 @@
-import { Task, Random, Level } from "../logic";
+import { Random } from "../Random";
+import { Task } from "../Task";
+import { Level } from "../Level";
 
 class Impl extends Level {
 	constructor() {

@@ -1,4 +1,5 @@
-import { Task, Level } from "../logic";
+import { Task } from "../Task";
+import { Level } from "../Level";
 
 class Impl extends Level {
 	constructor() {

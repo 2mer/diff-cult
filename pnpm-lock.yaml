@@ -4,6 +4,7 @@ specifiers:
   '@types/node': ^22.5.1
   chalk: '4'
   eventemitter3: ^5.0.1
+  minimist: ^1.2.8
   ts-node: ^10.9.2
   tsup: ^8.2.4
   typescript: ^5.5.4
@@ -11,6 +12,7 @@ specifiers:
 dependencies:
   chalk: 4.1.2
   eventemitter3: 5.0.1
+  minimist: 1.2.8
 
 devDependencies:
   '@types/node': 22.5.1
@@ -904,6 +906,10 @@ packages:
     dependencies:
       brace-expansion: 2.0.1
     dev: true
+
+  /minimist/1.2.8:
+    resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
+    dev: false
 
   /minipass/7.1.2:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}

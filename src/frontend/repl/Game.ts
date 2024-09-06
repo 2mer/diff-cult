@@ -1,6 +1,7 @@
 import chalk from "chalk";
 import { GameState, HeadlessGame, IncorrectSubmissionError } from "../../HeadlessGame";
-import { Level, Task } from "../../logic";
+import { Task } from "../../Task";
+import { Level } from "../../Level";
 import { humanReadableTime } from "../../util";
 import * as REPL from "repl";
 import vm from 'vm';

@@ -1,5 +1,6 @@
 import { levels } from "./levels";
-import { Level, Task } from "./logic";
+import { Task } from "./Task";
+import { Level } from "./Level";
 import Timer from "./Timer";
 
 export class IncorrectSubmissionError extends Error {
